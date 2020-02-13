@@ -2,31 +2,44 @@
 RetakeExamJavaOOP
 
 OOP Exam Retake – PlayersAndMonsters
+
 Overview
 PlayersAndMonsters is a battle game. It's all about battles between players with their cards. Each player has health and deck of cards. Each card gives bonus damage and bonus health. The players fight on the battle field with their cards.
 Setup
 You are allowed only to write classes. You are not allowed to modify the existing.
+
 Task 1: Structure (50 points)
+
 You are given 6 interfaces, and you have to implement their functionality in the correct classes.
 There are 3 types of models in the application: Player, Card and BattleField:
 BasePlayer
 BasePlayer is a base class for any type of player and it should not be able to be instantiated.
+
 Data
+
 •	username – String (If the username is null or empty, throw an IllegalArgumentException with message "Player's username cannot be null or an empty string. ")
 •	health – int -  the health of а player (if the health is below 0, throw an IllegalArgumentException with message "Player's health bonus cannot be less than zero. ")
 •	cardRepository – CardRepository repository of all user's cards.
 •	isDead – boolean – shows if player is alive(false) or dead(true).
+
 Behavior
+
 void takeDamage(int damagePoints)
 The takeDamage() method decreases players' points. 
 •	If the damagePoints are below 0 throw an IllegalArgumentException with message "Damage points cannot be less than zero."
 •	Player’s health should not drop below zero
+
 Constructor
+
 BasePlayer should take the following values upon initialization: 
 CardRepository cardRepository, String username, int health 
+
 Child Classes
+
 There are several concrete types of BasePlayer:
+
 Beginner
+
 •	defaultHealthPoints - constant value equal to 50
 Constructor should take the following values upon initialization:
 CardRepository cardRepository, String username 
@@ -34,24 +47,36 @@ Advanced
 •	defaultHealthPoints - constant value equal to 250
 Constructor should take the following values upon initialization:
 CardRepository cardRepository, String username 
+
 BaseCard
+
 BaseCard is a base class for any type of card and it should not be able to be instantiated.
 Data
 •	name – String (If the card name is null or empty throw an IllegalArgumentException with message "Card's name cannot be null or an empty string.") 
 •	damagePoints – int (If the damage points are below zero, throw an IllegalArgumentException with message "Card's damage points cannot be less than zero.") 
 •	healthPoints - int (If the health points are below zero, throw an IllegalArgumentException with message "Card's HP cannot be less than zero.") 
+
 Constructor
+
 BaseCard should take the following values upon initialization: 
 String name, int damagePoints, int healthPoints 
+
 Child Classes
+
 There are several concrete types of BaseCard:
+
 MagicCard
+
 •	defaultDamagePoints - constant value equal to 5
 •	defaultHealthPoints - constant value equal to 80
+
 TrapCard
+
 •	defaultDamagePoints - constant value equal to 120
 •	defaultHealthPoints - constant value equal to 5
+
 BattleFieldImpl
+
 The battle field is the place where the fight happens.
 Behavior
 void fight(Player attacker, Player enemy)
@@ -60,7 +85,9 @@ That's the most interesting method.
 •	If the player is a beginner, increase his health with 40 points and increase all damage points of all cards for the user with 30.
 •	Before the fight, both players get bonus health points from their deck.
 •	Attacker attacks first and after that the enemy attacks. If one of the players is dead you should stop the fight.
+
 PlayerRepositoryImpl
+
 The player repository holds information for all users.
 Data
 •	getCount() – int – returns the count of players
@@ -75,7 +102,9 @@ Removes a player from the collection.
 •	If the player is null, throw an IllegalArgumentException with message "Player cannot be null".
 Player find(String username)
 Returns a player with that username.
+
 CardRepositoryImpl
+
 The card repository holds information for all cards.
 Data
 •	getCount() – int – return the count of cards
@@ -145,7 +174,12 @@ Below, you can see the format in which each command will be given in the input:
 •	Report
 Output
 Print the output from each command when issued. If an exception is thrown during any of the commands’ execution, print the exception message.
+
+
 Examples
+
+
+
 Input
 AddPlayer Beginner handyUser33
 AddPlayer Advanced cool11
